@@ -4,7 +4,7 @@ class User:
     """
     user_list=[] #empty user list
 
-    def __init__(self,first_name,last_name,phone_number,email):
+    def __init__(self,user_name,pass_word):
         #docstring removed for simplicity
 
         self.first_name=first_name
