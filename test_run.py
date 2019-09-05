@@ -19,7 +19,7 @@ class TestUser(unittest.TestCase):
         '''
 
         self.assertEqual(self.new_user.first_name,"jeanne")
-        self.assertEqual(self.new_user.user_name,"marie")
+        self.assertEqual(self.new_user.username,"marie")
         self.assertEqual(self.new_user.password,"dukunde")
         self.assertEqual(self.new_user.email,"dukunde@gmail.com")
     def test_save_user(self):
@@ -52,7 +52,18 @@ class TestUser(unittest.TestCase):
 
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
-    def test_find_user_by
+    def test_find_user_by_name(self):
+        '''
+        test to check if we can find the user name and display information
+        '''
+
+        self.new_user.save_user()
+        test_user=User("Test","user","password","test@user.com")
+        test_user.save_user()
+
+        found_user=User.find_by_name("user")
+
+        self.assertEqual(found_user.email,test_user.email)
 
 
     

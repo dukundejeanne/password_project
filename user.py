@@ -4,11 +4,11 @@ class User:
     """
     user_list=[] #empty user list
 
-    def __init__(self,first_name,user_name,password,email):
-        #docstring removed for simplicity
+    def __init__(self,first_name,username,password,email):
+        
 
         self.first_name=first_name
-        self.user_name=user_name
+        self.username=username
         self.password=password
         self.email=email
 
@@ -22,4 +22,18 @@ class User:
         delete_user method delete a saved used from user
         '''
         User.user_list.remove(self)
+    @classmethod
+    def find_by_name(cls,username):
+        '''
+        method that find by username and return all information that matches
+
+        Args:
+            name: first name to search for 
+        Returns:
+            all information of that person
+        '''
+        for user in cls.user_list:
+            if user.username==username:
+                return user
+    
     pass
