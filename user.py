@@ -35,5 +35,28 @@ class User:
         for user in cls.user_list:
             if user.username==username:
                 return user
+       
+    @classmethod
+    def user_exist(cls,username):
+        '''
+        method that find by username and return all information that matches
+
+        Args:
+            name: first name to search for 
+        Returns:
+            all information of that person
+        '''
+        for user in cls.user_list:
+            if user.username==username:
+                return True
+        return False
+    @classmethod
+    def display_users(cls):
+        '''
+        method that return all user list saved 
+        '''
+        
+        return cls.user_list
+    
     
     pass
