@@ -173,9 +173,5 @@ class TestCredentials(unittest.TestCase):
         Credential.copy_credential(self.new_credential.site_name)
         self.assertEqual('dukunde',pyperclip.paste())
         print(pyperclip.paste())
-
-
-
-
 if __name__=='__main__':
     unittest.main()

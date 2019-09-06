@@ -166,6 +166,7 @@ def main():
 
                             elif passwor == 'ng':
                                 password = generate_password()
+                                print(f'Credential Created !!! Site Name: {site_name} -Account Name: {account_name} - Password: {password}')
 
                             elif passwor== 'ex':
                                 break

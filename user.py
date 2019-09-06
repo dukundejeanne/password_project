@@ -50,6 +50,8 @@ class User:
             if user.first_name== first_name:
                 return True
         return False
+
+
     @classmethod
     def find_by_name(cls,first_name):
         '''
@@ -90,13 +92,12 @@ class Credential:
 
         Credential.credential_list.append(self)
 
-    def generate_password(size=6,char=string.ascii_lowercase+string.ascii_uppercase+string.digits):
+    def generate_password(size=6, char=string.ascii_lowercase + string.ascii_uppercase+string.digits):
         '''
         method to generate random password
         '''
         generate=''.join(random.choice(char) for _ in range(size) )
-        return generate elif passwor == 'gp':
-                                        password=generate_password()
+        return generate
 
     @classmethod
     def check_user(cls,first_name,password):
