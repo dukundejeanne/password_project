@@ -51,7 +51,6 @@ class User:
                 return True
         return False
 
-
     @classmethod
     def find_by_name(cls,first_name):
         '''
