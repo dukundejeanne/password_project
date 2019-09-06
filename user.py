@@ -95,8 +95,8 @@ class Credential:
         method to generate random password
         '''
         generate=''.join(random.choice(char) for _ in range(size) )
-        return generate
-        
+        return generate elif passwor == 'gp':
+                                        password=generate_password()
 
     @classmethod
     def check_user(cls,first_name,password):

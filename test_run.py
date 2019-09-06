@@ -174,38 +174,7 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual('dukunde',pyperclip.paste())
         print(pyperclip.paste())
 
-# if __name__=='__main__':
-#     unittest.main(verbosity=2)
 
-
-
-            # def test_save_multiple_user(self):
-    #     '''o
-
-    #     to check if we can save multiple user information
-    #     '''
-    #     self.new_user.save_user()
-    #     test_user=User("Test","user","password","test@user.com")
-    #     test_user.save_user()
-    #     self.assertEqual(len(User.user_list),2)
-
-    
-
-   
-
-
-
-
-    # def test_copo
-
-    #     '''
-    #     test to copy the email address from a found
-    #     '''
-
-    #     self.new_user.save_user()
-    #     User.copy_email("marie")
-
-    #     self.assertEqual(self.new_user.email,pyperclip.paste())
 
 
 if __name__=='__main__':
