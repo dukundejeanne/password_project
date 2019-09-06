@@ -33,7 +33,7 @@ class TestUser(unittest.TestCase):
         '''
 
         self.new_user.save_user()
-        self.assertEqual(len(User.user_list),2) 
+        self.assertEqual(len(User.user_list),4) 
 
     def test_user_exists(self):
         '''
@@ -43,7 +43,7 @@ class TestUser(unittest.TestCase):
         test_user=User("Test","user","password","test@user.com")
         test_user.save_user()
         
-        user_exists=User.user_exist("user")
+        user_exists=User.user_exist("Test")
         self.assertTrue(user_exists)
     def test_delete_contact(self):
         '''
@@ -55,6 +55,19 @@ class TestUser(unittest.TestCase):
 
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
+
+    def test_find_user_by_name(self):
+        '''
+        test to check if we can find the user name and display information
+        '''
+
+        self.new_user.save_user()
+        test_user=User("Test","user","password","test@user.com")
+        test_user.save_user()
+
+        found_user=User.find_by_name("Test")
+
+        self.assertEqual(found_user.first_name,test_user.first_name)
 
 class TestCredentials(unittest.TestCase):
     '''
@@ -125,6 +138,7 @@ class TestCredentials(unittest.TestCase):
         twitter.save_credential()
         gmail=Credential("jeanne","gmail","dukunde","dukunde1")
         gmail.save_credential()
+        instagram=Credential("jeanne","instagram","dukunde","dukunde")
         self.assertEqual(len(Credential.disp_credential(twitter.first_name)),3)
 
     def test_find_site(self):
@@ -161,7 +175,8 @@ class TestCredentials(unittest.TestCase):
 
 
             # def test_save_multiple_user(self):
-    #     '''
+    #     '''o
+
     #     to check if we can save multiple user information
     #     '''
     #     self.new_user.save_user()
@@ -171,18 +186,7 @@ class TestCredentials(unittest.TestCase):
 
     
 
-    # def test_find_user_by_name(self):
-    #     '''
-    #     test to check if we can find the user name and display information
-    #     '''
-
-    #     self.new_user.save_user()
-    #     test_user=User("Test","user","password","test@user.com")
-    #     test_user.save_user()
-
-    #     found_user=User.find_by_name("user")
-
-    #     self.assertEqual(found_user.email,test_user.email)
+   
 
 
 
@@ -192,7 +196,8 @@ class TestCredentials(unittest.TestCase):
     #     '''
 
     #     self.assertEqual(User.display_users(),User.user_list)
-    # def test_copy_email(self):
+    # def test_copo
+
     #     '''
     #     test to copy the email address from a found
     #     '''

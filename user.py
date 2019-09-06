@@ -25,9 +25,16 @@ class User:
         delete_user method delete a saved used from user
         '''
         User.user_list.remove(self)
-        
+
+    # def check_existing_user(self):
+    #     '''
+    #     to check if the user exist
+    #     '''
+    #     User.user_exist(email)
+    
+
     @classmethod
-    def user_exist(cls,username):
+    def user_exist(cls,first_name):
         '''
         method that find by username and return all information that matches
 
@@ -37,26 +44,31 @@ class User:
             all information of that person
         '''
         for user in cls.user_list:
-            if user.username==username:
+            if user.first_name== first_name:
                 return True
         return False
+    @classmethod
+    def find_by_name(cls,first_name):
+        '''
+        method that find by username and return all information that matches
+
+        Args:
+            name: first name to search for 
+        Returns:
+            all information of that person
+        '''
+        for user in cls.user_list:
+            if user.first_name==first_name:
+                return user
+
+
+
 class Credential:
     '''
     class of credential account, generate passwords information
     '''
     credential_list=[]
     user_credential_list=[]
-
-    @classmethod
-    def check_user(cls,first_name,password):
-        '''
-        Method that checks if name and password enteries match
-        '''
-        current_user=''
-        for user in User.user_list:
-            if(user.first_name== first_name and user.password==password):
-                current_user=user.first_name
-        return current_user
 
     def __init__(self,first_name,site_name,account_name,password):
         '''
@@ -74,6 +86,18 @@ class Credential:
         '''
 
         Credential.credential_list.append(self)
+        
+
+    @classmethod
+    def check_user(cls,first_name,password):
+        '''
+        Method that checks if name and password enteries match
+        '''
+        current_user=''
+        for user in User.user_list:
+            if(user.first_name== first_name and user.password==password):
+                current_user=user.first_name
+        return current_user
 
     @classmethod
     def disp_credential(cls,first_name):
@@ -83,8 +107,10 @@ class Credential:
         user_credential_list=[]
         for credential in cls.credential_list:
             if credential.first_name==first_name:
-                user_credential_list.append(Credential)
+                user_credential_list.append(credential)
         return user_credential_list
+
+
     @classmethod
     def find_site(cls,site_name):
         '''
@@ -104,19 +130,7 @@ class Credential:
 
 
    
-    # @classmethod
-    # def find_by_name(cls,username):
-    #     '''
-    #     method that find by username and return all information that matches
-
-    #     Args:
-    #         name: first name to search for 
-    #     Returns:
-    #         all information of that person
-    #     '''
-    #     for user in cls.user_list:
-    #         if user.username==username:
-    #             return user
+    
        
   
     # @classmethod

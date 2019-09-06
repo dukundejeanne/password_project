@@ -15,7 +15,18 @@ def save_user(user):
     '''
     User.save_user(user)
 
-def checks_user(first_name,password):
+def delete_user(user):
+    '''
+    function to delete a user
+    '''
+    user.delete_user()
+def find_user(first_name):
+    '''
+    function that find user by the firstname
+    '''
+    return User.find_by_name(first_name)
+
+def check_user(first_name,password):
     '''
     check if the account exist
     '''
@@ -46,6 +57,11 @@ def copy_credential(site_name):
     function to copy credentials 
     '''
     return Credential.copy_credential(site_name)
+def check_existing_user(first_name):
+        '''
+        to check if the user exist
+        '''
+        return User.user_exist(first_name)
 
 def main():
     print(' ')
@@ -53,11 +69,29 @@ def main():
     while True:
         print(' ')
         print("-"*60)
-        print("use these codes to navigate: \n ca - Create account \n li - Login \n ex - Exit")
+        print("use these codes to navigate: \n ca - Create account \n li - Login \n du - Delete User \n ex - Exit")
 
         short_code = input('Please Enter your choice:').lower().strip()
         if short_code == 'ex':
             break
+        elif short_code=='du':
+            print("-"*60)
+            print(' ')
+            print("Delete a user----")
+            search_email=input('Please Enter the first_name')
+            if check_existing_user(search_email):
+                search_user=find_user(search_email)
+                print(f"{search_user.first_name} {search_user.username}")
+                print("-"*20)
+                print(f"Email.......{search_user.email}")
+                print(f"FirstName...{search_user.first_name}")
+                search_user.delete_user()
+                print("User deleted!!!!!!")
+            else:
+                print("The user doesn't Exit")
+           
+                
+
         elif short_code == 'ca':
             
             print("-"*60)
@@ -75,9 +109,10 @@ def main():
             print(' ')
             print("Login account:")
           
-            username=input('Enter your Username: ').strip()
+            first_name =input('Enter your Firstname: ').strip()
             password=str(input('Enter the Password: '))
-            user_exists== checks_user(first_name,username,password,email)
+
+            user_exists=check_user(first_name, password)
             if user_exists == first_name:
                 print(" ")
                 print(f'Welcome {first_name}.Please choose to continue.')
@@ -112,17 +147,17 @@ def main():
                                 password=generate_password()
                             else:
                                 print('sorry!!! Wrong option and  Try again ')
-                        save_credential(create_cred(first_name,site_name,account_name,password,email))
+                        save_credential(create_cred(first_name,site_name,account_name,password))
                         print(' ')
-                        print(f'Credential Created !!! Site Name: {site_name} -Account Name: {account_name} - Password: {password}- Email: {email}')
+                        print(f'Credential Created !!! Site Name: {site_name} -Account Name: {account_name} - Password: {password}')
                         print('')
                     elif short_code == 'dc':
                         print(' ')
-                        if disp_credential(first_name):
+                        if disp_credential(first_name): 
                             print('List of Credentials')
                             print(' ')
                             for credential in disp_credential(first_name):
-                                print(f'Site Name: {credential.site_name} - Account Name: {credential.account_name} - Password: {credential.password} - Email: {credential.email}')
+                                print(f'Credential Created !!! Site Name: {site_name} -Account Name: {account_name} - Password: {password}')
                             print(' ')
 
                         else:
