@@ -78,9 +78,9 @@ def main():
             username=input('Enter your Username: ').strip()
             password=str(input('Enter the Password: '))
             user_exists== checks_user(first_name,username,password,email)
-            if user_exists == username:
+            if user_exists == first_name:
                 print(" ")
-                print(f'Welcome {username}.Please choose to continue.')
+                print(f'Welcome {first_name}.Please choose to continue.')
                 print('')
                 while True:
                     print("-"*60)
@@ -91,10 +91,61 @@ def main():
                         print(" ")
                         print(f'Bye {first_name}')
                         break
-                    # elif short_code =='cc':
-                    #     print
-          
-            save_user(create_user(first_name,username,password,email))
+                    elif short_code =='cc':
+                        print(' ')
+                        print('Enter your credential: ')
+                        site_name=input('enter the site name\'s name-').strip()
+                        account_name=input('Enter your account\'s name- ').strip()
+                        while True:
+                            print(' ')
+                            print("-"*60)
+                            print('Please choose any option:\n ep-enter existing password \n ng-generate a password \n ex-exit')
+                            pass_choice=input('Enter your option: ').lower().strip()
+                            print("-"*60)
+                            if pass_choice== 'ep':
+                                print(" ")
+                                password =input('Enter your password: ').strip()
+                                break
+                            elif pass_choice == 'ex':
+                                break
+                            elif pass_choice == 'gp':
+                                password=generate_password()
+                            else:
+                                print('sorry!!! Wrong option and  Try again ')
+                        save_credential(create_cred(first_name,site_name,account_name,password,email))
+                        print(' ')
+                        print(f'Credential Created !!! Site Name: {site_name} -Account Name: {account_name} - Password: {password}- Email: {email}')
+                        print('')
+                    elif short_code == 'dc':
+                        print(' ')
+                        if disp_credential(first_name):
+                            print('List of Credentials')
+                            print(' ')
+                            for credential in disp_credential(first_name):
+                                print(f'Site Name: {credential.site_name} - Account Name: {credential.account_name} - Password: {credential.password} - Email: {credential.email}')
+                            print(' ')
+
+                        else:
+                                print(' ')
+                                print(" you don't have any credential ")
+                                print('')
+                    elif short_code == 'cp':
+                        print(' ')
+                        chosen_site= input('Enter the site name to copy : ')
+                        copy_credential(chosen_site)
+                        print(' ')
+                    else:
+                        print('Wrong option!! Try again.')
+
+            else:
+                print(' ')
+                print("try again or create an account")
+
+        else:
+            print("-"*60)
+            print(' ')
+            print(' Wrong option try Again.')
+                           
 
 
 

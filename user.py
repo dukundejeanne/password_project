@@ -19,6 +19,27 @@ class User:
         save user method saves user objects into user list
         '''
         User.user_list.append(self)
+
+    def delete_user(self):
+        '''
+        delete_user method delete a saved used from user
+        '''
+        User.user_list.remove(self)
+        
+    @classmethod
+    def user_exist(cls,username):
+        '''
+        method that find by username and return all information that matches
+
+        Args:
+            name: first name to search for 
+        Returns:
+            all information of that person
+        '''
+        for user in cls.user_list:
+            if user.username==username:
+                return True
+        return False
 class Credential:
     '''
     class of credential account, generate passwords information
@@ -82,11 +103,7 @@ class Credential:
         return pyperclip.copy(find_credential.password)
 
 
-    # def delete_user(self):
-    #     '''
-    #     delete_user method delete a saved used from user
-    #     '''
-    #     User.user_list.remove(self)
+   
     # @classmethod
     # def find_by_name(cls,username):
     #     '''
@@ -101,20 +118,7 @@ class Credential:
     #         if user.username==username:
     #             return user
        
-    # @classmethod
-    # def user_exist(cls,username):
-    #     '''
-    #     method that find by username and return all information that matches
-
-    #     Args:
-    #         name: first name to search for 
-    #     Returns:
-    #         all information of that person
-    #     '''
-    #     for user in cls.user_list:
-    #         if user.username==username:
-    #             return True
-    #     return False
+  
     # @classmethod
     # def display_users(cls):
     #     '''
