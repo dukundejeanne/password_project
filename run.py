@@ -28,11 +28,28 @@ def create_cred(first_name,site_name,account_name,password):
     '''
     new_credential=Credential(first_name,site_name,account_name,password)
     return new_credential
+
 def save_credential(credential):
     '''
     to save all credentials
     '''
     Credential.save_credential(credential)
+
+def disp_credential(first_name):
+    '''
+    to display all credentials stored
+    '''
+    return Credential.disp_credential(first_name)
+
+def copy_credential(site_name):
+    '''
+    function to copy credentials 
+    '''
+    return Credential.copy_credential(site_name)
+
+def main():
+    print('')
+    
 
 
 
