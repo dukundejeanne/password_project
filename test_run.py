@@ -34,6 +34,11 @@ class TestUser(unittest.TestCase):
 
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),4) 
+    def test_display_all_users(self):
+        '''
+        to display all users saved
+        '''
+        self.assertEqual(User.display_users(),User.user_list)
 
     def test_user_exists(self):
         '''
@@ -190,12 +195,7 @@ class TestCredentials(unittest.TestCase):
 
 
 
-    # def test_display_all_users(self):
-    #     '''
-    #     method to display all users saved
-    #     '''
 
-    #     self.assertEqual(User.display_users(),User.user_list)
     # def test_copo
 
     #     '''

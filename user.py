@@ -25,12 +25,13 @@ class User:
         delete_user method delete a saved used from user
         '''
         User.user_list.remove(self)
+    @classmethod
+    def display_users(cls):
+        '''
+        method that display all user saved in the list
+        '''
+        return cls.user_list
 
-    # def check_existing_user(self):
-    #     '''
-    #     to check if the user exist
-    #     '''
-    #     User.user_exist(email)
     
 
     @classmethod
@@ -133,13 +134,6 @@ class Credential:
     
        
   
-    # @classmethod
-    # def display_users(cls):
-    #     '''
-    #     method that return all user list saved 
-    #     '''
-        
-    #     return cls.user_list
    
     # @classmethod
     # def copy_email(cls,username):
