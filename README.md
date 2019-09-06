@@ -17,6 +17,8 @@ use code . for visual code
 * Python3.6
 * terminal 
 * ubuntu windows
+## Run
+Use Terminal to run this application
 
 ### Behavior Driven Development (BDD)
 * Create methode and function for delete,save, find, etc..
