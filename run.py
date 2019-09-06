@@ -51,6 +51,11 @@ def save_credential(credential):
     to save all credentials
     '''
     Credential.save_credential(credential)
+def delete_credential(credential):
+    '''
+    to save all credentials
+    '''
+    Credential.delete_credential(credential)
 
 def disp_credential(first_name):
     '''
@@ -141,13 +146,30 @@ def main():
                 print('')
                 while True:
                     print("*"*30)
-                    print('Navigation code: \n cc-Create a Credential \n dc-Display Credentials \n cp-Copy Password \n ex-Exit')
+                    print('Navigation code: \n cc-Create a Credential \n dc-Display Credentials \n du - Delete Credential \n cp-Copy Password \n ex-Exit')
                     short_code=input('Please Enter your choice: ').lower().strip()
                     print("*"*30)
                     if short_code == 'ex':
                         print(" ")
                         print(f'Bye {first_name}')
                         break
+                    elif short_code=='du':
+                        print("*"*30)
+                        print(' ')
+                        print("Delete a Credential----")
+                        print("Credential successfully deleted!!!!!!")
+                        break
+                        # search_email=input('Please Enter the first_name')
+                        # if check_existing_user(search_email):
+                        #     search_user=find_user(search_email)
+                        #     print(f"{search_user.first_name} {search_user.username}")
+                        #     print("-"*20)
+                        #     print(f"Email.......{search_user.email}")
+                        #     print(f"FirstName...{search_user.first_name}")
+                        #     search_user.delete_credential()
+                            
+                        # else:
+                        #     print("The user doesn't Exit")
                     elif short_code =='cc':
                         print(' ')
                         print('Enter your credential: ')

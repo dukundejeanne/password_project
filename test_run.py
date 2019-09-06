@@ -50,7 +50,7 @@ class TestUser(unittest.TestCase):
         
         user_exists=User.user_exist("Test")
         self.assertTrue(user_exists)
-    def test_delete_contact(self):
+    def test_delete_user(self):
         '''
         delete user to test if we can delete a user
         '''
@@ -78,8 +78,8 @@ class TestCredentials(unittest.TestCase):
     '''
     class that test the credential 
 
-    Args:
-        unittest and test case help in creating test for our credential
+    Args:append
+        unittestappend and test case help in creating test for our credential
     '''
 
     def test_check_user(self):
@@ -124,6 +124,15 @@ class TestCredentials(unittest.TestCase):
         twitter=Credential("jeanne","Twitter","dukunde","dukunde")
         twitter.save_credential()
         self.assertEqual(len(Credential.credential_list),2)
+    # def test_delete_credentials(self):
+    #     '''
+    #     method which test to save credential
+    #     '''
+
+    #     self.new_credential.delete_credential()
+    #     twitter=Credential("jeanne","Twitter","dukunde","dukunde")
+    #     twitter.save_credential()
+    #     self.assertEqual(len(Credential.credential_list),2)
 
 
     def tearDown(self):
