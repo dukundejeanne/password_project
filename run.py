@@ -57,6 +57,12 @@ def disp_credential(first_name):
     to display all credentials stored
     '''
     return Credential.disp_credential(first_name)
+def generate_password():
+    '''
+    function to give password randomly
+    '''
+    generate=Credential.generate_password()
+    return generate
 
 def copy_credential(site_name):
     '''
@@ -151,16 +157,19 @@ def main():
                             print(' ')
                             print("*"*30)
                             print('Please choose any option:\n ep-enter existing password \n ng-generate a password \n ex-exit')
-                            pass_choice=input('Enter your option: ').lower().strip()
+                            passwor=input('Enter your option: ').lower().strip()
                             print("*"*30)
-                            if pass_choice== 'ep':
+                            if passwor== 'ep':
                                 print(" ")
                                 password =input('Enter your password: ').strip()
                                 break
-                            elif pass_choice == 'ex':
+
+                            elif passwor == 'ng':
+                                password = generate_password()
+
+                            elif passwor== 'ex':
                                 break
-                            elif pass_choice == 'gp':
-                                password=generate_password()
+                           
                             else:
                                 print('sorry!!! Wrong option and  Try again ')
                         save_credential(create_cred(first_name,site_name,account_name,password))

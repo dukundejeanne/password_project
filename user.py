@@ -1,4 +1,6 @@
 import pyperclip
+import string
+import random
 global user_list
 class User:
     """
@@ -87,6 +89,13 @@ class Credential:
         '''
 
         Credential.credential_list.append(self)
+
+    def generate_password(size=6,char=string.ascii_lowercase+string.ascii_uppercase+string.digits):
+        '''
+        method to generate random password
+        '''
+        generate=''.join(random.choice(char) for _ in range(size) )
+        return generate
         
 
     @classmethod
