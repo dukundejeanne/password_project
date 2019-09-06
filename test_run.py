@@ -134,8 +134,8 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual('dukunde',pyperclip.paste())
         print(pyperclip.paste())
 
-if __name__=='__main__':
-    unittest.main(verbosity=2)
+# if __name__=='__main__':
+#     unittest.main(verbosity=2)
 
 
 
@@ -200,5 +200,5 @@ if __name__=='__main__':
     #     self.assertEqual(self.new_user.email,pyperclip.paste())
 
 
-# if __name__=='__main__':
-#     unittest.main()
+if __name__=='__main__':
+    unittest.main()
